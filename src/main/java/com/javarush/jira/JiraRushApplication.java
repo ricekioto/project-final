@@ -13,6 +13,6 @@ public class JiraRushApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(JiraRushApplication.class, args);
-        //branch tast-2
+        //branch task-2
     }
 }
