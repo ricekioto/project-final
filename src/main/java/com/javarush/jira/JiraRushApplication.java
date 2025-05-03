@@ -16,7 +16,5 @@ public class JiraRushApplication {
     public static void main(String[] args) {
         SpringApplication.run(JiraRushApplication.class, args);
         //branch task-2
-        //commit test 2 with a comment
-        //commit test 3 with a comment
     }
 }
