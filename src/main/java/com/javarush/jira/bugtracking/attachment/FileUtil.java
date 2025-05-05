@@ -21,7 +21,7 @@ public class FileUtil {
         if (multipartFile.isEmpty()) {
             throw new IllegalRequestDataException("Select a file to upload.");
         }
-        
+
         Path path = Paths.get(directoryPath);
         try {
             Files.createDirectories(path);
