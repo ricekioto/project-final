@@ -1,0 +1,754 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1747114964944-1
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: project_pkey
+                  name: id
+                  startWith: 3
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: code
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: title
+                  type: VARCHAR(1024)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: description
+                  type: VARCHAR(4096)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type_code
+                  type: VARCHAR(32)
+              - column:
+                  name: startpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: endpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: parent_id
+                  type: BIGINT
+            tableName: project
+  - changeSet:
+      id: 1747114964944-2
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: mail_case_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: date_time
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: result
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: template
+                  type: VARCHAR(255)
+            tableName: mail_case
+  - changeSet:
+      id: 1747114964944-3
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sprint_pkey
+                  name: id
+                  startWith: 8
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status_code
+                  type: VARCHAR(32)
+              - column:
+                  name: startpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: endpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: code
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: project_id
+                  type: BIGINT
+            tableName: sprint
+  - changeSet:
+      id: 1747114964944-4
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: reference_pkey
+                  name: id
+                  startWith: 65
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: code
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ref_type
+                  type: SMALLINT
+              - column:
+                  name: endpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: startpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: title
+                  type: VARCHAR(1024)
+              - column:
+                  name: aux
+                  type: VARCHAR
+            tableName: reference
+  - changeSet:
+      id: 1747114964944-5
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_pkey
+                  name: id
+                  startWith: 5
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: display_name
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: VARCHAR(128)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: VARCHAR(32)
+              - column:
+                  name: last_name
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: VARCHAR(128)
+              - column:
+                  name: endpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: startpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+            tableName: users
+  - changeSet:
+      id: 1747114964944-6
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: task_pkey
+                  name: id
+                  startWith: 8
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: title
+                  type: VARCHAR(1024)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type_code
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status_code
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: project_id
+                  type: BIGINT
+              - column:
+                  name: sprint_id
+                  type: BIGINT
+              - column:
+                  name: parent_id
+                  type: BIGINT
+              - column:
+                  name: startpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: endpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+            tableName: task
+  - changeSet:
+      id: 1747114964944-7
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: activity_pkey
+                  name: id
+                  startWith: 5
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: author_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: task_id
+                  type: BIGINT
+              - column:
+                  name: updated
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: comment
+                  type: VARCHAR(4096)
+              - column:
+                  name: title
+                  type: VARCHAR(1024)
+              - column:
+                  name: description
+                  type: VARCHAR(4096)
+              - column:
+                  name: estimate
+                  type: INTEGER
+              - column:
+                  name: type_code
+                  type: VARCHAR(32)
+              - column:
+                  name: status_code
+                  type: VARCHAR(32)
+              - column:
+                  name: priority_code
+                  type: VARCHAR(32)
+            tableName: activity
+  - changeSet:
+      id: 1747114964944-8
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: user_belong_pkey
+                  name: id
+                  startWith: 9
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: object_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: object_type
+                  type: SMALLINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_type_code
+                  type: VARCHAR(32)
+              - column:
+                  name: startpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: endpoint
+                  type: TIMESTAMP WITHOUT TIME ZONE
+            tableName: user_belong
+  - changeSet:
+      id: 1747114964944-9
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: attachment_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(128)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: file_link
+                  type: VARCHAR(2048)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: object_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: object_type
+                  type: SMALLINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: date_time
+                  type: TIMESTAMP WITHOUT TIME ZONE
+            tableName: attachment
+  - changeSet:
+      id: 1747114964944-10
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: task_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tag
+                  type: VARCHAR(32)
+            tableName: task_tag
+  - changeSet:
+      id: 1747114964944-11
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role
+                  type: SMALLINT
+            tableName: user_role
+  - changeSet:
+      id: 1747114964944-12
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: code
+            constraintName: uk_project_code
+            tableName: project
+  - changeSet:
+      id: 1747114964944-13
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: project_id
+              - column:
+                  name: code
+            indexName: uk_sprint_project_code
+            tableName: sprint
+            unique: true
+  - changeSet:
+      id: 1747114964944-14
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: ref_type, code
+            constraintName: uk_reference_ref_type_code
+            tableName: reference
+  - changeSet:
+      id: 1747114964944-15
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: display_name
+            constraintName: uk_users_display_name
+            tableName: users
+  - changeSet:
+      id: 1747114964944-16
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uk_users_email
+            tableName: users
+  - changeSet:
+      id: 1747114964944-17
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: user_id
+            indexName: ix_user_belong_user_id
+            tableName: user_belong
+  - changeSet:
+      id: 1747114964944-18
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: object_id
+              - column:
+                  name: object_type
+              - column:
+                  name: user_id
+              - column:
+                  name: user_type_code
+            indexName: uk_user_belong
+            tableName: user_belong
+            unique: true
+  - changeSet:
+      id: 1747114964944-19
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: task_id, tag
+            constraintName: uk_task_tag
+            tableName: task_tag
+  - changeSet:
+      id: 1747114964944-20
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: user_id, role
+            constraintName: uk_user_role
+            tableName: user_role
+  - changeSet:
+      id: 1747114964944-21
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: contact_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: contact_pkey
+                  name: code
+                  type: VARCHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: value
+                  type: VARCHAR(256)
+            tableName: contact
+  - changeSet:
+      id: 1747114964944-22
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: profile_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: last_login
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: last_failed_login
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: mail_notifications
+                  type: BIGINT
+            tableName: profile
+  - changeSet:
+      id: 1747114964944-23
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: task_id
+            baseTableName: activity
+            constraintName: fk_activity_task
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: task
+  - changeSet:
+      id: 1747114964944-24
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: author_id
+            baseTableName: activity
+            constraintName: fk_activity_users
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+  - changeSet:
+      id: 1747114964944-25
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: attachment
+            constraintName: fk_attachment
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+  - changeSet:
+      id: 1747114964944-26
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: id
+            baseTableName: contact
+            constraintName: fk_contact_profile
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: profile
+  - changeSet:
+      id: 1747114964944-27
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: id
+            baseTableName: profile
+            constraintName: fk_profile_users
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+  - changeSet:
+      id: 1747114964944-28
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: parent_id
+            baseTableName: project
+            constraintName: fk_project_parent
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: project
+  - changeSet:
+      id: 1747114964944-29
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: project_id
+            baseTableName: sprint
+            constraintName: fk_sprint_project
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: project
+  - changeSet:
+      id: 1747114964944-30
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: parent_id
+            baseTableName: task
+            constraintName: fk_task_parent_task
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: task
+  - changeSet:
+      id: 1747114964944-31
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: project_id
+            baseTableName: task
+            constraintName: fk_task_project
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: project
+  - changeSet:
+      id: 1747114964944-32
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: sprint_id
+            baseTableName: task
+            constraintName: fk_task_sprint
+            onDelete: SET NULL
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: sprint
+  - changeSet:
+      id: 1747114964944-33
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: task_id
+            baseTableName: task_tag
+            constraintName: fk_task_tag
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: task
+  - changeSet:
+      id: 1747114964944-34
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_belong
+            constraintName: fk_user_belong
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+  - changeSet:
+      id: 1747114964944-35
+      author: ataic (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_role
+            constraintName: fk_user_role
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+
